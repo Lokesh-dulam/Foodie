@@ -8,10 +8,10 @@ const Home = () => {
   const [Res, setRes] = useState([]);
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    // console.log(json.data)
+    console.log(json.data)
     setRes(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -20,11 +20,8 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-    <>
-      {Res.length === 0 ? (
-        <Shimmer />
-      ) : (
-        <div>
+    <>{Res.length===0?<Shimmer/>:
+  <div>
           <Navbar />
           <div className="m-2 pt-24">
             <input
@@ -38,7 +35,7 @@ const Home = () => {
             />
             <button
               onClick={() => {
-                const sortRes = Res.filter((e) => e.info.name.includes(text));
+                const sortRes = Res.filter((e) => e.info.name.toLowerCase().includes(text.toLowerCase()));
                 setRes(sortRes);
               }}
               className="hover:border hover:border-transparent border border-gray-400 rounded-lg hover:bg-fuchsia-300 px-4 py-2 ml-2 font-semibold bg-transparent"
@@ -47,14 +44,10 @@ const Home = () => {
             </button>
           </div>
           <div className="grid grid-cols-5 px-12 gap-5 pt-5">
-            {Res.map((e) => (
-              <Card key={e.info.id} ResData={e} />
-            ))}
+            {Res.map((e)=><Card key={e.info.id} ResData={e}/>)}
           </div>
-          <Footer />
-        </div>
+          <Footer/>
+          </div>}
+          </>
       )}
-    </>
-  );
-};
 export default Home;
