@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import { RouterProvider } from "react-router-dom";
 import AboutUs from "./AboutUs";
-// import Home from "./Home";
 import ContactUs from "./ContactUs";
 import Body from "./Body"
 const Navigation = () => {
@@ -15,10 +14,6 @@ const Navigation = () => {
       path:"/body",
       element:<Body/>,
     },
-        // {
-        //   path:"/home",
-        //   element:<Home/>
-        // },
         {
           path:"/aboutus",
           element:<AboutUs/>,
