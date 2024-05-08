@@ -60,7 +60,7 @@ const Login = () => {
             uid: uid,
             email: email,
           })
-        );navigate("/body")
+        );
       } 
       else {
         dispatch(removeUser());
