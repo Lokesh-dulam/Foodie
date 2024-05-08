@@ -1,6 +1,6 @@
 import Card from "./Card";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+// import Footer from "./Footer";
+// import Navbar from "./Navbar";
 import Shimmer from "../utils/Shimmer";
 import { useEffect, useState } from "react";
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
         <Shimmer />
       ) : (
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="m-2 pt-24">
             <input
               className="ml-10 border border-black-400 rounded-lg w-96 px-2 py-1"
@@ -38,7 +38,7 @@ const Home = () => {
             />
             <button
               onClick={() => {
-                const sortRes = Res.filter((e) => e.info.name.includes(text));
+                const sortRes = Res.filter((e) => e.info.name.toLowerCase().includes(text.toLowerCase()));
                 setRes(sortRes);
               }}
               className="hover:border hover:border-transparent border border-gray-400 rounded-lg hover:bg-fuchsia-300 px-4 py-2 ml-2 font-semibold bg-transparent"
@@ -51,7 +51,7 @@ const Home = () => {
               <Card key={e.info.id} ResData={e} />
             ))}
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       )}
     </>

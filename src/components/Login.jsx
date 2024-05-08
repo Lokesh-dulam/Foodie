@@ -1,17 +1,16 @@
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import {createUserWithEmailAndPassword,onAuthStateChanged,signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { checkValidData } from "../utils/validate";
 import { updateProfile } from "firebase/auth";
 import { BG_IMG } from "../utils/constants";
-import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errormsg, setErrorMsg] = useState(null);
+  const dispatch=useDispatch()
   const navigate = useNavigate();
   const email = useRef(null);
   const password = useRef(null);
@@ -31,12 +30,11 @@ const Login = () => {
             .catch((error) => {
               setErrorMsg(error);
             });
-          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMsg(errorCode + "-" + errorMessage);
+          const errormsg = error.message;
+          setErrorMsg(errorCode + "-" + errormsg);
         });
     } else {
       signInWithEmailAndPassword(
@@ -45,24 +43,36 @@ const Login = () => {
         password.current.value
       )
         .then(() => {
-          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMsg(errorCode + "-" + errorMessage);
+          const errormsg = error.message;
+          setErrorMsg(errorCode + "-" + errormsg);
         });
     }
   };
-  const toggleSignInForm = () => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email} = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+          })
+        );navigate("/body")
+      } 
+      else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
+
+const toggleSignInForm = () => {
     setisSignInForm(!isSignInForm);
   };
-
-
-  const user =useSelector((state)=>state.user)
-  if(user!==null){
-navigate("/home")
-  }
   return (
     <div className="h-screen w-screen flex items-center justify-end">
       <div className="w-full h-full absolute left-0 top-0 ">
