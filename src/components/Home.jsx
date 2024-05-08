@@ -1,6 +1,4 @@
 import Card from "./Card";
-// import Footer from "./Footer";
-// import Navbar from "./Navbar";
 import Shimmer from "../utils/Shimmer";
 import { useEffect, useState } from "react";
 const Home = () => {
@@ -20,18 +18,12 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-<<<<<<< HEAD
     <>
       {Res.length === 0 ? (
         <Shimmer />
-      ) : (
+      ) : 
         <div>
-          {/* <Navbar /> */}
-=======
-    <>{Res.length===0?<Shimmer/>:
   <div>
-          <Navbar />
->>>>>>> 3aa6f5646bcb8717cb85ebbab66b5dc316fe12f7
           <div className="m-2 pt-24">
             <input
               className="ml-10 border border-black-400 rounded-lg w-96 px-2 py-1"
@@ -55,13 +47,8 @@ const Home = () => {
           <div className="grid grid-cols-5 px-12 gap-5 pt-5">
             {Res.map((e)=><Card key={e.info.id} ResData={e}/>)}
           </div>
-<<<<<<< HEAD
-          {/* <Footer /> */}
         </div>
-=======
-          <Footer/>
           </div>}
-          </>
->>>>>>> 3aa6f5646bcb8717cb85ebbab66b5dc316fe12f7
-      )}
+          </>)
+}
 export default Home;
