@@ -1,6 +1,7 @@
 import Card from "./Card";
 import Shimmer from "../utils/Shimmer";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; 
 const Home = () => {
   const [text, setText] = useState("");
   const [Res, setRes] = useState([]);
@@ -9,7 +10,7 @@ const Home = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json.data)
+    // console.log(json.data)
     setRes(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -45,7 +46,7 @@ const Home = () => {
             </button>
           </div>
           <div className="grid grid-cols-5 px-12 gap-5 pt-5">
-            {Res.map((e)=><Card key={e.info.id} ResData={e}/>)}
+            {Res.map((e)=><Link key={e.info.id} to="/resturants/:resId"><Card ResData={e}/></Link>)}
           </div>
         </div>
           </div>}
