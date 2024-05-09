@@ -1,10 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import { RouterProvider } from "react-router-dom";
-<<<<<<< HEAD
-=======
-import AboutUs from "./AboutUs";
->>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
 import ContactUs from "./ContactUs";
 import Body from "./Body"
 import ResMenu from "./ResMenu";
@@ -19,13 +15,6 @@ const Navigation = () => {
       path:"/home",
       element:<Body/>,
     },
-<<<<<<< HEAD
-=======
-        {
-          path:"/aboutus",
-          element:<AboutUs/>,
-        },
->>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
         {
           path:"/contactus",
           element:<ContactUs/>,
