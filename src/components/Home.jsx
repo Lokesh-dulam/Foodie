@@ -2,7 +2,10 @@ import Card from "./Card";
 import Shimmer from "../utils/Shimmer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
+<<<<<<< HEAD
 import { MAIN_API } from "../utils/constants";
+=======
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
 const Home = () => {
   const [text, setText] = useState("");
   const [Res, setRes] = useState([]);
@@ -29,6 +32,10 @@ const Home = () => {
   const fetchData = async () => {
     const data = await fetch(MAIN_API);
     const json = await data.json();
+<<<<<<< HEAD
+=======
+    // console.log(json.data)
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
     setRes(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -64,11 +71,20 @@ const Home = () => {
               Submit
             </button>
           </div>
+<<<<<<< HEAD
           <div className="grid grid-cols-5 px-12 gap-5 py-5">
             {Res.map((e)=><Link key={e.info.id} to={"/restaurants/" + e?.info.id}><Card ResData={e}/></Link>)}
+=======
+          <div className="grid grid-cols-5 px-12 gap-5 pt-5">
+            {Res.map((e)=><Link key={e.info.id} to="/resturants/:resId"><Card ResData={e}/></Link>)}
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
           </div>
         </div>
           </div>}
           </>)
 }
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b

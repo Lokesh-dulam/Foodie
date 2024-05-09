@@ -26,7 +26,11 @@ const Login = () => {
       )
         .then(() => {
           updateProfile(auth.user, {})
+<<<<<<< HEAD
             .then(() => {navigate("/home")})
+=======
+            .then(() => {navigate("/body")})
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
             .catch((error) => {
               setErrorMsg(error);
             });
@@ -42,7 +46,11 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
+<<<<<<< HEAD
         .then(() => {navigate("/home")
+=======
+        .then(() => {navigate("/body")
+>>>>>>> afe00d45c1ba7cd19072b36ddcc7825b2dbf315b
         })
         .catch((error) => {
           const errorCode = error.code;
