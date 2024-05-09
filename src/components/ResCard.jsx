@@ -1,12 +1,11 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/prop-types */
 import { CDN_URL } from "../utils/constants"
-
 const Card = (props) => {
     const {ResData}=props
     const{cloudinaryImageId,name,cuisines,costForTwo,locality,avgRating}=ResData?.info   
   return (
- <div className="hover:scale-90 rounded-lg bg-slate-100 shadow-xl cursor-pointer max-h-[450px]">
+ <div className="rounded-lg bg-slate-100 shadow-xl cursor-pointer max-h-[450px]">
         <img src={CDN_URL+cloudinaryImageId} alt="logo" className="rounded-lg w-full max-h-[175px] object-cover mb-1"/>
         <div className="p-2">
         <h1 className="font-bold bg-clip-content truncate break-words text-lg">{name}</h1>
@@ -25,6 +24,8 @@ const Card = (props) => {
           )}
           </p>
           <p className="pl-6 pt-2 font-semibold">| {costForTwo}</p>
+          <button 
+          className="ml-5 px-4 py-2 bg-black text-white rounded-lg">Add + </button>
           </div>
       </div>
         </div>

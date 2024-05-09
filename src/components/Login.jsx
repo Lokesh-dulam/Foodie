@@ -26,7 +26,7 @@ const Login = () => {
       )
         .then(() => {
           updateProfile(auth.user, {})
-            .then(() => {})
+            .then(() => {navigate("/home")})
             .catch((error) => {
               setErrorMsg(error);
             });
@@ -42,7 +42,7 @@ const Login = () => {
         email.current.value,
         password.current.value
       )
-        .then(() => {
+        .then(() => {navigate("/home")
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -60,12 +60,8 @@ const Login = () => {
             uid: uid,
             email: email,
           })
-        );navigate("/body")
+        );navigate("/home")
       } 
-      else {
-        dispatch(removeUser());
-        navigate("/");
-      }
     });
     return () => unsubscribe();
   }, []);
