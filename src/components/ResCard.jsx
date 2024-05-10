@@ -1,7 +1,13 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/prop-types */
 import { CDN_URL } from "../utils/constants"
-const Card = (props) => {
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+const Card = (props,{items}) => {
+    const dispatch = useDispatch();
+  
+    const handleAddItem = (item) => {
+      dispatch(addItem(item));}
     const {ResData}=props
     const{cloudinaryImageId,name,cuisines,costForTwo,locality,avgRating}=ResData?.info   
   return (
@@ -25,6 +31,7 @@ const Card = (props) => {
           </p>
           <p className="pl-6 pt-2 font-semibold">| {costForTwo}</p>
           <button 
+          onClick={()=>handleAddItem(items)}
           className="ml-5 px-4 py-2 bg-black text-white rounded-lg">Add + </button>
           </div>
       </div>
