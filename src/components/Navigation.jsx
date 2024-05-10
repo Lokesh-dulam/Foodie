@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "./Login";
 import { RouterProvider } from "react-router-dom";
+<<<<<<< HEAD
 import AboutUs from "./AboutUs";
+=======
+>>>>>>> 0873af3829555816bf2078bbb4ee56dbca4d0e29
 import ContactUs from "./ContactUs";
 import Body from "./Body"
 import ResMenu from "./ResMenu";

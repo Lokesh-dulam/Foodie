@@ -1,13 +1,14 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0873af3829555816bf2078bbb4ee56dbca4d0e29
 import { useState } from "react"
 import { useEffect } from "react"
 import ResCard from "./ResCard"
-// import { useParams } from "react-router-dom" 
 import { MAIN_API } from "../utils/constants"
 import Navbar from "./Navbar"
 const ResMenu = () => {
   const[Menu,setMenu]=useState([])
-  // const{resId}=useParams()
 const fetchData=async()=>{
   const data=await fetch(MAIN_API)
   const json=await data.json()
@@ -26,4 +27,8 @@ useEffect(()=>{
   )
 }
 
+<<<<<<< HEAD
 export default ResMenu
+=======
+export default ResMenu
+>>>>>>> 0873af3829555816bf2078bbb4ee56dbca4d0e29
