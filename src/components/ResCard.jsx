@@ -1,41 +1,28 @@
-/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/prop-types */
-import { CDN_URL } from "../utils/constants"
-import { addItem } from "../utils/cartSlice";
-import { useDispatch } from "react-redux";
-const Card = (props,{items}) => {
-    const dispatch = useDispatch();
-  
-    const handleAddItem = (item) => {
-      dispatch(addItem(item));}
-    const {ResData}=props
-    const{cloudinaryImageId,name,cuisines,costForTwo,locality,avgRating}=ResData?.info   
+import { CDN_URL,BG_IMG} from "../utils/constants";
+
+const RestrauntCard = ({
+  name,
+  cuisines,
+  cloudinaryImageId,
+  lastMileTravelString,
+}) => {
   return (
- <div className="rounded-lg bg-slate-100 shadow-xl cursor-pointer max-h-[450px]">
-        <img src={CDN_URL+cloudinaryImageId} alt="logo" className="rounded-lg w-full max-h-[175px] object-cover mb-1"/>
-        <div className="p-2">
-        <h1 className="font-bold bg-clip-content truncate break-words text-lg">{name}</h1>
-        <h2 className="flex-wrap bg-clip-content truncate font-semibold text-sm">{cuisines.join(", ")}</h2>
-        <p className="font-semibold">{locality}</p>
-        <div className="flex">
-        <p className="text-white mt-2 w-12 h-6 font-medium">
-          {avgRating < 4.3 ? (
-            <span className="pr-5 py-1 text-base bg-red-600 rounded-md">
-              ⭐{avgRating}
-            </span>
-          ) : (
-            <span className="pr-5 py-1 text-base bg-green-600 rounded-md">
-              ⭐{avgRating}
-            </span>
-          )}
-          </p>
-          <p className="pl-6 pt-2 font-semibold">| {costForTwo}</p>
-          <button 
-          onClick={()=>handleAddItem(items)}
-          className="ml-5 px-4 py-2 bg-black text-white rounded-lg">Add + </button>
-          </div>
-      </div>
-        </div>
-  )
-}
-export default Card
+    <div className="w-56 p-4 m-3 h-72 border border-gray-100 bg-gray rounded-md  hover:shadow-lg bg-gray-50  ">
+      <img
+        className="rounded-md"
+        src={
+          !cloudinaryImageId
+            ? BG_IMG
+            : CDN_URL + cloudinaryImageId
+        }
+      />
+
+      <h2 className="text-xl font-semibold py-1">{name}</h2>
+      <h3 className="cuisines text-sm text-gray-500 ">{cuisines.join(", ")}</h3>
+      <h4 className="distance text-sm">📍 {lastMileTravelString} away</h4>
+    </div>
+  );
+};
+
+export default RestrauntCard;

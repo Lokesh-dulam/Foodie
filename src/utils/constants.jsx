@@ -7,4 +7,7 @@ export const MENU_API ="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_ME
 export const MENU_ITEM_TYPE_KEY ="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
 export const RESTAURANT_TYPE_KEY ="type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
 export const MAIN_API="https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-export const GIT_URL="https://miro.medium.com/v2/resize:fit:1125/0*N1fmHtI8gmkH_2Vu.png"
+export const GIT_URL="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+export const LINKED_IN_URL="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png"
+export const TWITTER_URL="https://d3lzcn6mbbadaf.cloudfront.net/media/details/ANI-20230724104554.jpg"
+export const MENU="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.4358011&lng=81.846311&restaurantId="

@@ -6,7 +6,8 @@ import { updateProfile } from "firebase/auth";
 import { BG_IMG } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../utils/userSlice";
+import { addUser} from "../utils/userSlice";
+
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errormsg, setErrorMsg] = useState(null);
@@ -124,4 +125,5 @@ const toggleSignInForm = () => {
     </div>
   );
 };
+
 export default Login;

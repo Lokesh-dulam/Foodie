@@ -6,6 +6,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
+
 const Navbar = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
@@ -53,4 +54,5 @@ const Navbar = () => {
       </div>
 )
 }
+
 export default Navbar

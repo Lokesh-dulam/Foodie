@@ -3,6 +3,7 @@ import Shimmer from "../utils/Shimmer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import { MAIN_API } from "../utils/constants";
+
 const Home = () => {
   const [text, setText] = useState("");
   const [Res, setRes] = useState([]);
@@ -50,4 +51,5 @@ const Home = () => {
           </div>}
           </>)
 }
+
 export default Home;
