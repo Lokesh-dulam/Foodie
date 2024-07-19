@@ -31,7 +31,7 @@ const Cart=()=> {
           return <FoodItem key={index}  />;
         })}
       </div>
-      <h1 className="p-2 font-bold">Total - {cartItems.length*100}</h1>
+      <h1 className="p-2 font-bold text-3xl">Total - {cartItems.length*100}</h1>
     </>
   );
 }
